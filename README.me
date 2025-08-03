@@ -8,7 +8,7 @@ This is a robust and secure command-line password manager built with Python. It 
 
 -   **🛡️ Strong Encryption:** Utilizes `cryptography.fernet` for symmetric encryption of your passwords, ensuring your data remains private.
 -   **🔐 Master Password Protection:** Your main encryption key (`key.key.enc`) is itself encrypted using a strong master password and a robust Key Derivation Function (KDF) called **PBKDF2**. This adds an extra layer of defense.
--   **🧂 Iterations & Salt:** PBKDF2 incorporates a unique **salt** and a high number of **iterations** (currently 480,000) to significantly slow down brute-force attacks. Even if an attacker gains access to your encrypted files, breaking the encryption becomes extremely difficult and time-consuming.
+-   -   **🧂 Iterations & Salt:** PBKDF2 incorporates a unique **salt** and a high number of **iterations** (currently 480,000) to significantly slow down brute-force attacks. Even if an attacker gains access to your encrypted files, breaking the encryption becomes extremely difficult and time-consuming.
 -   **✅ Secure Authentication:** No master password hash is stored on disk. Authentication is done by attempting to decrypt the main key directly, making it highly secure against offline attacks.
 -   **➕ View, Edit, Delete (CRUD):** Easily **C**reate, **R**ead (view), **U**pdate, and **D**elete your password entries through an intuitive menu.
 -   **🔍 Search Functionality:** Quickly find specific passwords by service name, saving you time.
