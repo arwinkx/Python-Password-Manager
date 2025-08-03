@@ -191,7 +191,7 @@ def create_secure_key_file():
         # Use the updated encrypt_key which handles PBKDF2 and salt
         encrypt_key(fernet_key, password)
 
-        display_message("success", message="✅ Master key created and saved securely.")
+        display_message("success", message="Master key created and saved securely.")
         display_message("wait")
         return True
     return True # Key file already exists
