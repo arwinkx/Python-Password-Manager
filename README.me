@@ -1,0 +1,84 @@
+# Python Password Manager
+
+This is a robust and secure command-line password manager built with Python. It provides a simple yet powerful way to store, retrieve, and manage your sensitive login credentials locally on your system. Designed with a strong focus on security, it ensures your passwords are well-protected.
+
+---
+
+## Features
+
+-   **Strong Encryption:** Utilizes `cryptography.fernet` for symmetric encryption of your passwords.
+-   **Master Password Protection:** Your main encryption key (`key.key.enc`) is itself encrypted using a strong master password and a robust Key Derivation Function (KDF) called **PBKDF2**.
+-   **Salt & Iterations:** PBKDF2 incorporates a unique **salt** and a high number of **iterations** (currently 480,000) to significantly slow down brute-force attacks, even if an attacker gains access to your encrypted files.
+-   **Secure Authentication:** No master password hash is stored; authentication is done by attempting to decrypt the main key, making it highly secure against offline attacks.
+-   **CRUD Operations:** Easily **C**reate, **R**ead (view), **U**pdate, and **D**elete your password entries.
+-   **Search Functionality:** Quickly find specific passwords by service name.
+-   **User-Friendly Interface:** Interactive command-line prompts powered by `questionary` for a smooth user experience.
+
+---
+
+## How It Works
+
+1.  **Initial Setup:** On first run, you'll be prompted to set a strong master password. This password is used to derive a key via PBKDF2, which then encrypts the main Fernet key. This encrypted key is stored in `key.key.enc`.
+2.  **Authentication:** Every time you start the application, you'll need to enter your master password. The application attempts to decrypt `key.key.enc` using your input. If successful, you gain access to your stored passwords.
+3.  **Password Storage:** Your service, username, and password combinations are encrypted using the main Fernet key and stored in `passwords.enc`. Each entry is encrypted individually.
+
+---
+
+## Setup and Installation
+
+To get started with this password manager, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/arwinkx/Python-Password-Manager.git](https://github.com/arwinkx/Python-Password-Manager.git)
+    cd Python-Password-Manager
+    ```
+
+2.  **Install Dependencies:**
+    Make sure you have Python 3 installed. It's highly recommended to use a **virtual environment** for your project. After activating your virtual environment, install the required libraries using pip:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the Application:**
+    Execute the main script from your terminal:
+    ```bash
+    python main.py
+    ```
+
+---
+
+## Usage
+
+Upon running the application, you will be guided through an interactive menu:
+
+-   **First-time users:** You will be prompted to set a master password. Choose a strong, unique password as this is the primary defense for all your stored credentials.
+-   **Returning users:** Enter your master password to unlock the manager.
+-   **Menu Options:**
+    -   `Add a new password`: Store new service credentials.
+    -   `View saved passwords`: Display all your stored passwords (requires master password).
+    -   `Search for a password`: Find a specific password entry.
+    -   `Delete all passwords`: Permanently remove all stored passwords.
+    -   `Select password by number`: View, edit, or delete a specific entry by its index.
+    -   `Exit`: Close the application.
+
+---
+
+## Security Considerations
+
+-   **Master Password is Key:** The strength of your master password directly determines the security of all your stored data. Choose a long, complex, and unique master password.
+-   **Local Storage:** All encrypted data (`key.key.enc`, `passwords.enc`) is stored locally on your machine. Ensure your computer is physically secure and protected with a strong login password.
+-   **No Online Sync:** This version does not include any online synchronization features, keeping your data strictly local for enhanced privacy.
+-   **Open Source:** The code is open source, allowing for transparency and community review of its security implementation.
+
+---
+
+## Contributing
+
+Feel free to fork this repository, submit issues, or propose pull requests if you have suggestions for improvements or bug fixes.
+
+---
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
