@@ -31,8 +31,9 @@ To get started with this secure password manager, follow these simple steps:
 1.  **Clone the repository:**
     Start by cloning the project to your local machine:
     ```bash
-    git clone [https://github.com/arwinkx/Python-Password-Manager.git](https://github.com/arwinkx/Python-Password-Manager.git)
+    git clone https://github.com/arwinkx/Python-Password-Manager.git
     cd Python-Password-Manager
+
     ```
 
 2.  **Install Dependencies:**
